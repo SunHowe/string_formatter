@@ -49,3 +49,24 @@ result:
 ```text
 i18n_content_1001
 ```
+
+### 4. different rules in different context
+
+```c#
+var formatter1 = new StringFormatter.StringFormatter();
+formatter1.RegisterFormatFunc("name", () => "name in context1");
+            
+var formatter2 = new StringFormatter.StringFormatter();
+formatter2.RegisterFormatFunc("name", () => "name in context2");
+
+// after register
+formatter1.Format("{name}");
+formatter2.Format("{name}");
+```
+
+result:
+```text
+name in context1
+name in context2
+```
+
