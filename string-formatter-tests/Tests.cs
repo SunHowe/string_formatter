@@ -102,5 +102,18 @@ namespace string_formatter_tests
                 StringEx.Format("{1}");
             });
         }
+
+        [Test]
+        public void DifferentContextTest()
+        {
+            var formatter1 = new StringFormatter.StringFormatter();
+            formatter1.RegisterFormatFunc("name", () => "name in context1");
+            
+            var formatter2 = new StringFormatter.StringFormatter();
+            formatter2.RegisterFormatFunc("name", () => "name in context2");
+            
+            Assert.AreEqual(formatter1.Format("{name}"), "name in context1");
+            Assert.AreEqual(formatter2.Format("{name}"), "name in context2");
+        }
     }
 }
