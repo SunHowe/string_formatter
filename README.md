@@ -42,7 +42,7 @@ StringEx.RegisterFormatFunc("i18n", (index, parameters) =>
     });
 
 // after register
-StringEx.Format("{i18n:1001}")
+StringEx.Format("{1001:i18n}")
 ```
 
 result:
